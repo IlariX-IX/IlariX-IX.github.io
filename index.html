@@ -1,1 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>IlariX — Trance / Psytrance Producer</title>
+<meta name="description" content="IlariX — Finnish trance and psytrance producer. Music, DJ sets and digital atmospheres.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(35, 75, 180, .22), transparent 35%),
+        radial-gradient(circle at 85% 30%, rgba(120, 35, 180, .20), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(20, 100, 180, .12), transparent 35%),
+        #05060b;
+    color: #f3f5ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* subtle digital grid */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .12;
+    background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 70px 70px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+/* navigation */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5,6,11,.65);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    opacity: .45;
+}
+
+nav a {
+    color: #bfc6dc;
+    text-decoration: none;
+    margin-left: 28px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .25s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* hero */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 120px 20px 80px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(70,90,255,.18), transparent 65%);
+    filter: blur(20px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.ix {
+    font-size: clamp(90px, 18vw, 220px);
+    font-weight: 900;
+    letter-spacing: -15px;
+    line-height: .8;
+    background: linear-gradient(135deg, #ffffff, #7c8cff 45%, #c35cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 80px rgba(100,100,255,.25);
+}
+
+.hero h1 {
+    margin-top: 45px;
+    font-size: clamp(34px, 7vw, 75px);
+    letter-spacing: 12px;
+    font-weight: 800;
+}
+
+.hero p {
+    margin-top: 20px;
+    color: #9ba3bb;
+    letter-spacing: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.hero-buttons {
+    margin-top: 42px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 6px;
+    border: 1px solid rgba(255,255,255,.25);
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+    background: rgba(255,255,255,.04);
+}
+
+.button:hover {
+    background: white;
+    color: black;
+    transform: translateY(-3px);
+}
+
+/* sections */
+
+section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 110px 30px;
+}
+
+.section-label {
+    color: #777f99;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+section h2 {
+    font-size: clamp(30px, 5vw, 55px);
+    letter-spacing: 2px;
+    margin-bottom: 45px;
+}
+
+/* release */
+
+.release {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.release-art {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,.1);
+    background:
+        radial-gradient(circle at 30% 30%, rgba(50,120,255,.8), transparent 25%),
+        radial-gradient(circle at 70% 70%, rgba(180,50,255,.6), transparent 30%),
+        linear-gradient(135deg, #11152c, #05060b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.release-art::before {
+    content: "ILARIX";
+    font-size: 14px;
+    letter-spacing: 8px;
+    opacity: .8;
+}
+
+.release-art::after {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 1px;
+    background: rgba(255,255,255,.2);
+    transform: rotate(-35deg);
+}
+
+.release-info h3 {
+    font-size: clamp(35px, 6vw, 70px);
+    letter-spacing: 2px;
+}
+
+.release-info .type {
+    margin-top: 10px;
+    color: #707992;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+.release-info p {
+    color: #9da5ba;
+    line-height: 1.8;
+    margin: 30px 0;
+    max-width: 500px;
+}
+
+/* video */
+
+.video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* music cards */
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.music-card {
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 30px;
+    background: rgba(255,255,255,.035);
+    transition: .3s;
+}
+
+.music-card:hover {
+    background: rgba(255,255,255,.08);
+    transform: translateY(-4px);
+}
+
+.music-card small {
+    color: #69728c;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.music-card h3 {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.music-card p {
+    color: #8d95aa;
+    font-size: 13px;
+}
+
+/* about */
+
+.about {
+    max-width: 800px;
+}
+
+.about p {
+    color: #9da5ba;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+/* links */
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* footer */
+
+footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 50px 30px;
+    text-align: center;
+    color: #555d72;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* mobile */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 18px 20px;
+    }
+
+    nav .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: 6px;
+    }
+
+    .release {
+        grid-template-columns: 1fr;
+    }
+
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">IX<span>/</span>ILARIX</div>
+
+    <div class="nav-links">
+        <a href="#music">Music</a>
+        <a href="#video">Video</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="ix">IX</div>
+
+        <h1>ILARIX</h1>
+
+        <p>Trance / Psytrance Producer</p>
+
+        <div class="hero-buttons">
+            <a href="#music" class="button">Explore Music</a>
+            <a href="#video" class="button">Watch</a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- LATEST RELEASE -->
+
+<section id="music">
+
+    <div class="section-label">01 / Latest Release</div>
+
+    <h2>DAYBORN</h2>
+
+    <div class="release">
+
+        <div class="release-art"></div>
+
+        <div class="release-info">
+
+            <h3>DAYBORN</h3>
+
+            <div class="type">Latest Release</div>
+
+            <p>
+                A journey through hypnotic trance structures,
+                atmospheric layers and digital energy.
+            </p>
+
+            <div class="links">
+
+                <a href="#" class="button">Spotify</a>
+
+                <a href="#" class="button">SoundCloud</a>
+
+                <a href="#" class="button">Bandcamp</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VIDEO -->
+
+<section id="video">
+
+    <div class="section-label">02 / Latest Video</div>
+
+    <h2>DJ SETS / VIDEO</h2>
+
+    <div class="video">
+
+        <iframe
+            src="https://www.youtube.com/embed/2roCQJYV3tA"
+            title="IlariX"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section>
+
+    <div class="section-label">03 / Releases</div>
+
+    <h2>MUSIC</h2>
+
+    <div class="music-grid">
+
+        <div class="music-card">
+            <small>Album</small>
+            <h3>Dayborn</h3>
+            <p>IlariX</p>
+        </div>
+
+        <div class="music-card">
+            <small>Album</small>
+            <h3>Presence Paradox</h3>
+            <p>IlariX</p>
+        </div>
+
+        <div class="music-card">
+            <small>Trance</small>
+            <h3>More Releases</h3>
+            <p>Coming soon.</p>
+        </div>
+
+        <div class="music-card">
+            <small>Digital / Psy</small>
+            <h3>Upcoming</h3>
+            <p>New material in development.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-label">04 / Identity</div>
+
+    <h2>ABOUT ILARIX</h2>
+
+    <div class="about">
+
+        <p>
+            IlariX is a Finnish electronic music project focused on
+            trance and psytrance. The sound combines hypnotic energy,
+            atmospheric layers and digital textures with a strong sense
+            of movement and space.
+        </p>
+
+        <br>
+
+        <p>
+            Systems. Cycles. Layers. Shifts. Signals.
+            Perception through sound.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-label">05 / Connect</div>
+
+    <h2>FOLLOW ILARIX</h2>
+
+    <div class="links">
+
+        <a href="#" class="button">Spotify</a>
+
+        <a href="#" class="button">SoundCloud</a>
+
+        <a href="#" class="button">YouTube</a>
+
+        <a href="#" class="button">Instagram</a>
+
+        <a href="#" class="button">TikTok</a>
+
+        <a href="#" class="button">X</a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    ILARIX — DIGITAL TRANCE / PSYTRANCE
+
+</footer>
+
+</body>
+</html>
