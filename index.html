@@ -544,8 +544,146 @@ footer {
   }
 
 }
+  
+.music-releases {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+  margin-top: 45px;
+}
 
+.release-item {
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.release-info small {
+  display: block;
+  color: #7e8ca9;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.release-info h3 {
+  margin: 0;
+  color: #f7f8fb;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+.release-info p {
+  margin: 10px 0 0;
+  color: #8994ab;
+  font-size: 13px;
+}
+
+.release-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.release-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  color: #cfd4df;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+  transition: 0.25s ease;
+}
+
+.release-links a:hover {
+  background: #fff;
+  color: #05070c;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  .music-releases {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+}
+ .music-releases {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+  margin-top: 45px;
+}
+
+.release-item {
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.release-info small {
+  display: block;
+  color: #7e8ca9;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.release-info h3 {
+  margin: 0;
+  color: #f7f8fb;
+  font-size: 34px;
+  letter-spacing: 1px;
+}
+
+.release-info p {
+  margin: 10px 0 0;
+  color: #8994ab;
+  font-size: 13px;
+}
+
+.release-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.release-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  color: #cfd4df;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+  transition: 0.25s ease;
+}
+
+.release-links a:hover {
+  background: #fff;
+  color: #05070c;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  .music-releases {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+}
+  
 </style>
+  
 </head>
 
 <body>
@@ -641,9 +779,6 @@ footer {
     03 / Releases
   </div>
 
-  
-
-  <h2>MUSIC</h2>
 
 <!-- MUSIC -->
 
