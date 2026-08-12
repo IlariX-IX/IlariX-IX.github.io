@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IlariX — Trance / Psytrance Producer</title>
+
+<meta name="description"
+  content="IlariX — trance and psytrance producer. Music, DJ sets and digital atmospheres.">
+
+<style>
+:root {
+  --bg: #03050a;
+  --text: #f2f4f8;
+  --muted: #9299aa;
+  --line: rgba(255,255,255,0.10);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(55,65,255,0.20), transparent 35%),
+    radial-gradient(circle at 50% 70%, rgba(120,40,255,0.12), transparent 40%),
+    #03050a;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 42px;
+  background: rgba(3,5,10,0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+}
+
+.nav-logo {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 34px;
+}
+
+.nav-links a {
+  color: #c5cad7;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-links a.active {
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(170,185,255,0.38);
+}
+
+.nav-links a.active::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 6px;
+  background: rgba(220,225,255,0.85);
+  box-shadow: 0 0 10px rgba(120,140,255,0.55);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 120px 30px 80px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(70,80,255,0.20), transparent 68%);
+  filter: blur(35px);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.hero-logo {
+  display: block;
+  width: min(1000px, 88vw);
+  max-height: 42vh;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 45px rgba(0,0,0,0.75));
+}
+
+.hero-sub {
+  margin-top: 24px;
+  color: #aab0c0;
+  font-size: 11px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 14px 24px;
+  border: 1px solid rgba(220,225,235,0.32);
+  color: #f4f6fa;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  background: rgba(255,255,255,0.02);
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #05070c;
+  transform: translateY(-2px);
+}
+
+/* SECTIONS */
+
+section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 70px 60px;
+  scroll-margin-top: 95px;
+  position: relative;
+  border-radius: 2px;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.55s ease,
+    box-shadow 0.55s ease,
+    opacity 0.55s ease;
+}
+
+/* ACTIVE SECTION — broad, soft focus */
+section {
+  isolation: isolate;
+  position: relative;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.55s ease,
+    filter 0.55s ease;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: -70px -10vw;
+  opacity: 0;
+  background:
+    radial-gradient(
+      ellipse 72% 78% at 50% 50%,
+      rgba(62, 70, 255, 0.18) 0%,
+      rgba(48, 45, 150, 0.105) 30%,
+      rgba(22, 20, 65, 0.045) 54%,
+      transparent 78%
+    );
+  filter: blur(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+body.section-focus section:not(.active-section) {
+  opacity: 0.72;
+  filter: saturate(0.82) brightness(0.9);
+}
+
+section.active-section {
+  transform: translateY(-7px);
+}
+
+section.active-section::before {
+  opacity: 1;
+  transform: scale(1.035);
+}
+
+/* Softer cards and interactive boxes */
+.release-item,
+.release-links a,
+.connect-link,
+.support-link,
+.btn {
+  border-radius: 10px;
+  border-color: rgba(180, 190, 225, 0.16);
+}
+
+.release-item {
+  box-shadow: 0 12px 35px rgba(0,0,0,0.14);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.release-item:hover {
+  transform: translateY(-7px);
+  border-color: rgba(155, 170, 255, 0.34);
+  background:
+    radial-gradient(circle at 78% 18%, rgba(105, 90, 235, 0.24), transparent 58%),
+    rgba(13, 11, 31, 0.82);
+  box-shadow:
+    0 18px 45px rgba(5, 5, 20, 0.34),
+    0 0 38px rgba(75, 75, 210, 0.11);
+}
+
+.release-links a,
+.connect-link,
+.support-link,
+.btn {
+  background: rgba(255,255,255,0.018);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.release-links a:hover,
+.connect-link:hover,
+.support-link:hover {
+  transform: translateY(-4px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(100,110,255,0.17), transparent 72%),
+    rgba(255,255,255,0.035);
+  border-color: rgba(175, 185, 255, 0.42);
+  box-shadow:
+    0 10px 28px rgba(20, 20, 70, 0.28),
+    0 0 24px rgba(90, 100, 255, 0.12);
+}
+
+.btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.055);
+  border-color: rgba(205, 210, 255, 0.48);
+  box-shadow: 0 10px 28px rgba(20,20,70,0.22);
+}
+
+.video-wrap {
+  border-radius: 12px;
+  box-shadow: 0 14px 45px rgba(0,0,0,0.22);
+}
+
+
+.section-top {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #737b8d;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h2 {
+  font-size: clamp(44px, 5vw, 76px);
+  line-height: 1.05;
+  letter-spacing: 2px;
+  margin-bottom: 38px;
+}
+
+/* VIDEO */
+
+.video-wrap {
+  width: 100%;
+  max-width: 1050px;
+  aspect-ratio: 16 / 9;
+  margin: 25px auto 0;
+  background: #000;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* MUSIC */
+
+.music-releases {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.release-item {
+  min-height: 280px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(120,60,200,0.18), transparent 55%),
+    rgba(10,8,24,0.72);
+  border: 1px solid var(--line);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.release-item:hover {
+  border-color: rgba(255,255,255,0.28);
+  transform: translateY(-3px);
+}
+
+.release-info small {
+  display: block;
+  margin-bottom: 18px;
+  color: #8da0d8;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.release-info h3 {
+  margin: 0;
+  color: #f7f8fb;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.release-info p {
+  margin-top: 10px;
+  color: #8d96bb;
+  font-size: 14px;
+}
+
+.release-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.release-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  color: #dcdff0;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+  transition: 0.25s ease;
+}
+
+.release-links a:hover {
+  background: #fff;
+  color: #05070c;
+  transform: translateY(-2px);
+}
+
+/* ABOUT */
+
+.about {
+  max-width: 950px;
+}
+
+.about p {
+  color: #9ca7bd;
+  font-size: 19px;
+  line-height: 1.85;
+  margin: 0 0 34px;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+/* CONTACT */
+
+#contact {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #c5cad7;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 2.5px;
+  transition: color 0.25s ease;
+}
+
+.contact-email::after {
+  content: "→";
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.contact-email:hover {
+  color: #fff;
+}
+
+.contact-email:hover::after {
+  transform: translateX(5px);
+}
+
+/* CONNECT */
+
+#connect {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.connect-group {
+  margin-bottom: 38px;
+}
+
+.connect-group:last-child {
+  margin-bottom: 0;
+}
+
+.connect-label {
+  margin-bottom: 16px;
+  color: #737b8d;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.connect-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.connect-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 15px 20px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+  transition: 0.25s ease;
+}
+
+.connect-link:hover {
+  background: #fff;
+  color: #05070c;
+  transform: translateY(-2px);
+}
+
+/* SUPPORT */
+
+#support {
+  padding-top: 70px;
+  padding-bottom: 90px;
+}
+
+.support-content {
+  max-width: 700px;
+}
+
+.support-content > p {
+  color: #9ca7bd;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.support-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  padding: 18px 24px;
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 10px;
+  transition: 0.25s ease;
+}
+
+.support-link:hover {
+  background: #fff;
+  color: #05070c;
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 45px 20px;
+  text-align: center;
+  color: #65718c;
+  letter-spacing: 4px;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+  nav {
+    height: 74px;
+    padding: 0 18px;
+  }
+
+  .nav-logo {
+    width: 112px;
+  }
+
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero {
+    padding: 100px 20px 70px;
+  }
+
+  .hero-logo {
+    width: 92vw;
+    max-height: 34vh;
+  }
+
+  .hero-sub {
+    letter-spacing: 3px;
+  }
+
+  section {
+    padding: 30px 20px;
+    scroll-margin-top: 88px;
+  }
+
+  section::before {
+    inset: -45px -24px;
+    filter: blur(14px);
+  }
+
+  body.section-focus section:not(.active-section) {
+    opacity: 0.84;
+  }
+
+  section.active-section {
+    transform: translateY(-3px);
+  }
+
+  section.active-section::before {
+    opacity: 0.82;
+  }
+
+  .release-links a,
+  .connect-link,
+  .support-link,
+  .btn {
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: clamp(42px, 10vw, 58px);
+    margin-bottom: 32px;
+  }
+
+  #video {
+    padding-top: 25px;
+  }
+
+  .video-wrap {
+    margin-top: 20px;
+  }
+
+  /* Keep the two release cards side by side. */
+  .music-releases {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 42px;
+  }
+
+  .release-item {
+    min-width: 0;
+    min-height: 300px;
+    padding: 28px 18px;
+  }
+
+  .release-info {
+    min-width: 0;
+  }
+
+  .release-info small {
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+  }
+
+  .release-info h3 {
+    font-size: 18px;
+    line-height: 1.15;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .release-info p {
+    font-size: 13px;
+  }
+
+  .release-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .release-links a {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 8px;
+    font-size: 8px;
+  }
+
+  .about {
+    max-width: none;
+  }
+
+  .about p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+
+  #about {
+    padding-bottom: 50px;
+  }
+
+  #contact {
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+
+  .contact-email {
+    font-size: 14px;
+  }
+
+  #connect {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .connect-group {
+    margin-bottom: 32px;
+  }
+
+  .connect-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .connect-link {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #support {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .support-content > p {
+    font-size: 16px;
+  }
+
+  .support-link {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   ILARIX INTERACTION — THREE DEPTH LEVELS
+   1. Whole section rises when cursor enters it.
+   2. Inner release/content card rises further.
+   3. Individual links/buttons get a smaller final lift.
+   ========================================================= */
+
+section {
+  border-radius: 26px;
+  transition:
+    transform 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.48s ease,
+    filter 0.48s ease,
+    background 0.48s ease,
+    box-shadow 0.48s ease;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8px 0;
+  border-radius: 30px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 78% 88% at 50% 48%,
+    rgba(65, 70, 210, 0.13),
+    rgba(35, 30, 105, 0.055) 48%,
+    transparent 78%
+  );
+  opacity: 0;
+  transform: scale(0.94);
+  filter: blur(20px);
+  transition:
+    opacity 0.48s ease,
+    transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Whole section: subtle, wide pull-forward. */
+section:hover {
+  transform: translateY(-5px) scale(1.008);
+  box-shadow: 0 24px 70px rgba(4, 4, 20, 0.20);
+}
+
+section:hover::after {
+  opacity: 1;
+  transform: scale(1.035);
+}
+
+/* Current section while scrolling: gentle depth only. */
+section.active-section {
+  transform: translateY(-2px);
+}
+
+section.active-section:hover {
+  transform: translateY(-6px) scale(1.008);
+}
+
+/* The cards are the second, stronger depth level. */
+.release-item {
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.14);
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.38s ease,
+    background 0.38s ease,
+    box-shadow 0.38s ease;
+}
+
+.release-item:hover {
+  transform: translateY(-10px) scale(1.016);
+  border-color: rgba(155, 170, 255, 0.28);
+  background:
+    radial-gradient(circle at 78% 18%, rgba(105, 90, 235, 0.22), transparent 58%),
+    rgba(13, 11, 31, 0.84);
+  box-shadow:
+    0 24px 55px rgba(5, 5, 20, 0.34),
+    0 0 38px rgba(75, 75, 210, 0.09);
+}
+
+/* Final depth level: links/buttons. */
+.release-links a,
+.connect-link,
+.support-link,
+.btn {
+  border-radius: 12px;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.release-links a:hover,
+.connect-link:hover,
+.support-link:hover {
+  transform: translateY(-5px) scale(1.03);
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(100,110,255,0.14), transparent 72%),
+    rgba(255,255,255,0.035);
+  border-color: rgba(175, 185, 255, 0.30);
+  box-shadow:
+    0 12px 28px rgba(20, 20, 70, 0.24),
+    0 0 22px rgba(90, 100, 255, 0.08);
+}
+
+.btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.055);
+  border-color: rgba(205, 210, 255, 0.34);
+  box-shadow: 0 10px 28px rgba(20,20,70,0.20);
+}
+
+/* Keep mobile behavior elegant rather than exaggerated. */
+@media (max-width: 760px) {
+  section:hover {
+    transform: translateY(-3px) scale(1.004);
+  }
+
+  section.active-section:hover {
+    transform: translateY(-4px) scale(1.004);
+  }
+
+  .release-item:hover {
+    transform: translateY(-6px) scale(1.008);
+  }
+
+  .release-links a:hover,
+  .connect-link:hover,
+  .support-link:hover {
+    transform: translateY(-3px) scale(1.015);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <a href="#" aria-label="IlariX home">
+    <img class="nav-logo" src="ilarix-official-logo.png" alt="IlariX">
+  </a>
+
+  <div class="nav-links">
+    <a href="#music">Music</a>
+    <a href="#video">Video</a>
+    <a href="#about">About</a>
+    <a href="#connect">Connect</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+  <div class="hero-content">
+
+    <img
+      class="hero-logo"
+      src="ilarix-official-logo.png"
+      alt="IlariX official logo"
+    >
+
+    <div class="hero-sub">
+      Trance / Psytrance Producer
+    </div>
+
+    <div class="buttons">
+      <a class="btn" href="#music">Explore Music</a>
+      <a class="btn" href="#video">Watch</a>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- VIDEO -->
+
+<section id="video">
+
+  <div class="section-top">
+    02 / Latest Video
+  </div>
+
+  <h2>DJ SETS / VIDEO</h2>
+
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/2roQcIYV3TA"
+      title="IlariX – YouTube"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section id="music">
+
+  <div class="section-top">
+    03 / Releases
+  </div>
+
+  <h2>MUSIC</h2>
+
+  <div class="music-releases">
+
+    <article class="release-item">
+
+      <div class="release-info">
+        <small>SINGLE</small>
+        <h3>DAYBORN</h3>
+        <p>IlariX</p>
+      </div>
+
+      <div class="release-links">
+        <a href="https://open.spotify.com/album/1SBBZ1g9g2O1zWpvuaRTFN" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href="https://soundcloud.com/ilarix-702090941/dayborn" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+        <a href="https://ilarix.bandcamp.com/track/dayborn" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+      </div>
+
+    </article>
+
+
+    <article class="release-item">
+
+      <div class="release-info">
+        <small>ALBUM</small>
+        <h3>PRESENCE PARADOX</h3>
+        <p>IlariX</p>
+      </div>
+
+      <div class="release-links">
+        <a href="https://open.spotify.com/album/6eBKmxKez9cIZA0deDKFh3" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a href="https://soundcloud.com/ilarix-702090941/sets/presence-paradox" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+        <a href="https://ilarix.bandcamp.com/album/presence-paradox" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-top">
+    04 / Identity
+  </div>
+
+  <h2>ABOUT ILARIX</h2>
+
+  <div class="about">
+
+    <p>
+      IlariX is a Finnish electronic music project
+      focused on trance and psytrance.
+      The sound combines hypnotic energy,
+      atmospheric layers and digital textures.
+    </p>
+
+    <p>
+      Systems. Cycles. Layers. Shifts.
+      Signals. Perception through sound.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CONNECT -->
+
+<section id="connect">
+
+  <div class="section-top">
+    05 / Connect
+  </div>
+
+  <h2>CONNECT</h2>
+
+  <div class="connect-group">
+
+    <div class="connect-label">
+      Listen / Watch
+    </div>
+
+    <div class="connect-links">
+
+      <a class="connect-link"
+         href="https://open.spotify.com/artist/43i097GZ3Sv0c1ntz9Mrbr"
+         target="_blank"
+         rel="noopener noreferrer">
+        Spotify
+      </a>
+
+      <a class="connect-link"
+         href="https://soundcloud.com/ilarix-702090941"
+         target="_blank"
+         rel="noopener noreferrer">
+        SoundCloud
+      </a>
+
+      <a class="connect-link"
+         href="https://ilarix.bandcamp.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Bandcamp
+      </a>
+
+      <a class="connect-link"
+         href="https://www.youtube.com/@IlariXOfficial"
+         target="_blank"
+         rel="noopener noreferrer">
+        YouTube
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="connect-group">
+
+    <div class="connect-label">
+      Follow
+    </div>
+
+    <div class="connect-links">
+
+      <a class="connect-link"
+         href="https://www.instagram.com/ilarixofficial/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Instagram
+      </a>
+
+      <a class="connect-link"
+         href="https://www.tiktok.com/@ilarixedm"
+         target="_blank"
+         rel="noopener noreferrer">
+        TikTok
+      </a>
+
+      <a class="connect-link"
+         href="https://x.com/TeemuMatti90001"
+         target="_blank"
+         rel="noopener noreferrer">
+        X
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="connect-group">
+
+    <div class="connect-label">
+      Label
+    </div>
+
+    <div class="connect-links">
+
+      <a class="connect-link"
+         href="https://www.facebook.com/profile.php?id=61592642234595"
+         target="_blank"
+         rel="noopener noreferrer">
+        IX Nexus Digital
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="section-top">
+    06 / Contact
+  </div>
+
+  <h2>CONTACT</h2>
+
+  <div class="buttons">
+    <a class="contact-email" href="mailto:contact.ilarix@proton.me">
+      contact.ilarix@proton.me
+    </a>
+  </div>
+
+</section>
+
+
+<!-- SUPPORT -->
+
+<section id="support">
+
+  <div class="section-top">
+    07 / Support
+  </div>
+
+  <h2>SUPPORT ILARIX</h2>
+
+  <div class="support-content">
+
+    <p>
+      Support the music and help keep the project moving.
+    </p>
+
+    <a
+      class="support-link"
+      href="https://ilarix.bandcamp.com/"
+      target="_blank"
+      rel="noopener noreferrer">
+      Bandcamp →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 IlariX
+</footer>
+
+<script>
+/* ACTIVE SECTION / NAVIGATION
+   Highlights the section currently in view and gently brings it forward. */
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    document.body.classList.add("section-focus");
+
+    navLinks.forEach(link => {
+      const isActive = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    sections.forEach(section => {
+      section.classList.toggle("active-section", section.id === id);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+    if (visible.length) {
+      setActive(visible[0].target.id);
+    }
+  }, {
+    root: null,
+    rootMargin: "-24% 0px -52% 0px",
+    threshold: [0, 0.1, 0.25, 0.5, 0.75]
+  });
+
+  sections.forEach(section => observer.observe(section));
+
+  // Make navigation clicks feel deliberate and keep the active state immediate.
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      const id = link.getAttribute("href").slice(1);
+      setActive(id);
+    });
+  });
+
+  // Hero starts above the section navigation; clear section emphasis there.
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        document.body.classList.remove("section-focus");
+        sections.forEach(section => section.classList.remove("active-section"));
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          link.removeAttribute("aria-current");
+        });
+      }
+    }, {
+      rootMargin: "-10% 0px -75% 0px",
+      threshold: 0
+    });
+    heroObserver.observe(hero);
+  }
+});
+</script>
+
+</body>
+</html>
